@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <section class="product">
+      <div class="container">
+        <h1> product </h1>
+
+        <label for="productName"> product name</label>
+        <input type="text" class="form-control mt-2" id="productName">
+
+        <label for="productPrice"> product price</label>
+        <input type="text" class="form-control mt-2" id="productPrice">
+
+        <label for="productCategory"> product category</label>
+        <input type="text" class="form-control mt-2" id="productCategory">
+
+        <label for="productDiscribtion"> product describtion</label>
+        <input type="text" class="form-control mt-2" id="productDescribtion">
+
+        <label for="searchByName">product search</label>
+        <input type="text" class="form-control mt-2 w-25" id="searchByName" placeholder="search by name">
+        <button class="btn btn-primary  mt-4" id="search"> search </button>
+
+        <label for="count"> product count</label>
+        <input type="count" class="form-control mt-2 w-25" id="count">
+
+        <button class="btn btn-info mt-4" id="add_btn"> add product </button>
+        <button class="btn btn-warning mt-4" id="delete_all"> delete all </button>
+        <!-- <button class="btn btn-danger mt-4" id="update" onclick="updateItem()"> update </button> -->
+
+        <table class="table mt-5 text-center table-bordered">
+          <thead class="bg-dark text-white">
+            <th> id </th>
+            <th> product name </th>
+            <th> product price </th>
+            <th> product category </th>
+            <th> product describtion </th>
+            <th> delete </th>
+            <th> edite </th>
+
+          </thead>
+          <tbody id="tBody">
+          </tbody>
+
+          <tfoot id="tfoot"></tfoot>
+        </table>
+
+
+
+      </div>
+    </section>
+
+    <script src="js/jeqeary/jequary.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+/* start global css style */
+@font-face {
+    font-family:"font1" ;
+    src: url(../fonts/Nunito-Light.ttf);
+}
+@font-face {
+    font-family:"font2" ;
+    src: url(../fonts/Nunito-Medium.ttf);
+}
+@font-face {
+    font-family:"font3" ;
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+@font-face {
+    font-family:"font4" ;
+    src: url(../fonts/Nunito-Bold.ttf);
+}
+@font-face {
+    font-family:"font5" ;
+    src: url(../fonts/Nunito-ExtraBold.ttf);
+}
+:root{
+    --main-color:#241e1e;
+}
+html {
+scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--main-color);
+    color: #fff;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* end global css style */
+h1{
+    font-size: 35px;
+    font-family: "font4";
+    color: var(--six-color);
+    text-transform: capitalize;
+    padding-top: 20px;
+
+}
+label{
+    margin-top: 8px;
+    text-transform: capitalize;
+    font-family: "font2";
+    font-size: 15px;
+    width: 100%;
+}
+.table td, .table th {
+    padding: 5px;
+    vertical-align: middle;
+}
+/* #update{
+    display: none;
+} */
