@@ -41,7 +41,6 @@ function AddProduct(e){
         categ : productCategory.value,
         disc : productDescribtion.value,
         count : count.value,
-        countItem : 1
     }
 
 
@@ -50,24 +49,7 @@ function AddProduct(e){
         if(product.name == "" || product.price =="" || product.categ == "" || product.disc == ""){
             e.peventDefault();
         }else{
-            if(!productItem.length){
-                        
-                productItem.push(product);
-            }else{
-
-                productItem.forEach(item => {
-                    if(item.name === product.name){
-                        ++item.countItem 
-                        console.log(productItem , product)
-                    }else{
-                        productItem.push(product);
-                        console.log(productItem , product)
-    
-                    }
-                });
-            }
-
-
+            productItem.push(product);
         }
     }else{
         productItem[temp] = product;
@@ -80,7 +62,7 @@ function AddProduct(e){
     localStorage.setItem("ourProduct", JSON.stringify(productItem));
 
     displayItem();
-    // clearInput();
+    clearInput();
 }
 
 
