@@ -43,7 +43,6 @@ h1{
     color: var(--six-color);
     text-transform: capitalize;
     padding-top: 20px;
-
 }
 label{
     margin-top: 8px;
@@ -56,6 +55,41 @@ label{
     padding: 5px;
     vertical-align: middle;
 }
-/* #update{
-    display: none;
-} */
+
+@media (min-width: 350px) and (max-width: 575.98px){
+    h1{
+        font-size: 30px;
+    }
+    label{
+        margin-top: 8px;
+        text-transform: capitalize;
+        font-family: "font2";
+        font-size: 12px;
+        width: 100%;
+    }
+    .product_item{
+        overflow: hidden;
+    }
+    input#searchByName , input#count{
+        width: 50% !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px){
+    h1{
+        font-size: 30px;
+    }
+    label{
+        margin-top: 8px;
+        text-transform: capitalize;
+        font-family: "font2";
+        font-size: 12px;
+        width: 100%;
+    }
+    .product_item{
+        overflow: hidden;
+    }
+    input#searchByName , input#count{
+        width: 50% !important;
+    }
+}

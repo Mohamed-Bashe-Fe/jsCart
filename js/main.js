@@ -41,15 +41,28 @@ function AddProduct(e){
         categ : productCategory.value,
         disc : productDescribtion.value,
         count : count.value,
+        countItem :1
     }
 
 
     if(mood === "add product"){
         // if input data null stop running code else check count >1 creat element == count else creat one element
         if(product.name == "" || product.price =="" || product.categ == "" || product.disc == ""){
-            e.peventDefault();
+            e.preventDefault();
         }else{
-            productItem.push(product);
+            if(!productItem.length){
+                            productItem.push(product);
+
+            }else{
+
+                let caseD = productItem.find(item => item.name == product.name )
+                console.log(caseD,"kjh");
+                if(caseD){
+                    ++caseD.countItem 
+                }else{
+                    productItem.push(product);
+                }
+            }
         }
     }else{
         productItem[temp] = product;
@@ -61,33 +74,36 @@ function AddProduct(e){
     // save data in localstoreage
     localStorage.setItem("ourProduct", JSON.stringify(productItem));
 
-    displayItem();
+    displayItem(productItem);
     clearInput();
 }
 
 
 
 
+
 // show input data in tBody element
-function displayItem(){
+function displayItem(data = productItem ){
     let productList = "";
     let footer = "";
     let x = 0;
-    for(let i = 0 ; i < productItem.length ; i++ ){
-        
-        productList += `
-        <tr>
-            <td>${[i+1]}</td>
-            <td>${productItem[i].name}</td>
-            <td>${productItem[i].price}</td>
-            <td>${productItem[i].categ}</td>
-            <td>${productItem[i].disc}</td>
+    let counter = 0;
+
+  
+
+        data.map((item,i)=>{
+            productList += `
+            <tr>
+            <td> ${i+1}</td>
+            <td> ${item.name}  ${item.countItem > 1? " * " + item.countItem:"" }  </td>
+            <td>${item.price}</td>
+            <td>${item.categ}</td>
+            <td>${item.disc}</td>
             <td><button class="btn btn-warning" onclick="deleteitem(${i})"> delete </button> </td>
             <td><button class="btn btn-success" onclick="EditeItem(${i})"> edite </button> </td>
-        </tr>
+            </tr>
         `
-
-        x += +productItem[i].price;
+        x += +item.price;
 
         footer = `
         <tr>
@@ -100,14 +116,14 @@ function displayItem(){
             <td>_</td>
         </tr>
         `
+        })
         
 
-    }
+        
+
     document.querySelector("#tBody").innerHTML = productList;
     document.querySelector("#tfoot").innerHTML = footer;
 }
-
-
 
 
 
@@ -135,6 +151,8 @@ function deleteAllData(){
 // delete one item when click on btn
 function deleteitem(id){
     productItem.splice(id,1);
+    // save data in localstoreage
+    localStorage.setItem("ourProduct", JSON.stringify(productItem));
     displayItem();
 }
 
@@ -150,6 +168,8 @@ function EditeItem(i){
     mood = "update";
     temp = i;
 
+    
+
 }
 
 
@@ -164,7 +184,7 @@ function getSearch(){
             productList += `
                 <tr>
                     <td>${[i+1]}</td>
-                    <td>${productItem[i].name}</td>
+                    <td>${productItem[i].name} </td>
                     <td>${productItem[i].price}</td>
                     <td>${productItem[i].categ}</td>
                     <td>${productItem[i].disc}</td>
